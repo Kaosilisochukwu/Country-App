@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './Header';
 import "bootstrap/dist/css/bootstrap.css";
-import Layout from './Components/Layout';
+//import Layout from './Components/Layout';
 import ItemsContainer from './Components/ItemsContainer';
 
 function App() {
@@ -24,9 +24,7 @@ function App() {
   return (
     <div className="app">
       <Header />
-        <Layout>
-           <ItemsContainer countries={allCountries} />
-        </Layout>
+      <ItemsContainer countries={allCountries} />
     </div>
   );
 }

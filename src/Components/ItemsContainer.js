@@ -30,12 +30,15 @@ const ItemsContainer = () => {
     return(
         <>
             <Search handleChange={handleChange} handleSearchChange={handleSearchChange}/>
-            {selectedCountries.map( country => {
-                if(country !== null){
-                return <Item country = {country} key = {country.name}/>
-                }
-                return <p>Nocountry</p>
-            })}
+                <div className ="main-item">
+                    
+                {selectedCountries.map( country => {
+                    if(country !== null){
+                    return <Item country = {country} key = {country.name}/>
+                    }
+                    return <p>Nocountry</p>
+                })}
+                </div>
         </>
     )
 }
