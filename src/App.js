@@ -5,27 +5,58 @@ import Header from './Header';
 import "bootstrap/dist/css/bootstrap.css";
 //import Layout from './Components/Layout';
 import ItemsContainer from './Components/ItemsContainer';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Details from './Components/Details';
 
 function App() {
 
-  const [allCountries, setAllCountries] = useState([])
-    useEffect(() => {
-       fetch("https://restcountries.eu/rest/v2/all")
-       .then(response => response.json())
-       .then(data => {
-            setAllCountries(data)
-           })
-       .catch(err => {
-        setAllCountries([])
-       })
+  const [className, setClassName] = useState("App")
 
-   }, [allCountries])
+
+
+  const [selectedCountries, setSelectedCountries] = useState([]);
+  const [search, setSearch] = useState("")
+  const [param, setParam] = useState("all")
+  const url = "https://restcountries.eu/rest/v2/";
+
+   useEffect(() => {
+      const fetchCountries = async () => {
+          const response = await fetch(`${url}${param}`)
+          const data = await response.json();
+          setSelectedCountries(data.filter(country => country.name.toLowerCase().indexOf(search.toLowerCase()) >= 0))
+      }
+       fetchCountries()
+
+ }, [selectedCountries, param, search,])
+
+
+  const handleChange = (e) => {
+      console.log(e.target.value)
+      setParam(e.target.value)
+  }
+  const handleSearchChange = e => {
+      setSearch(e.target.value)
+  }
+
+
+   const handleHeaderClick = () => {
+    setClassName(()=> className === "App" ? "App-dark" : "App");
+   }
 
   return (
-    <div className="app">
-      <Header />
-      <ItemsContainer countries={allCountries} />
-    </div>
+    <Router>
+      <div className={className}>
+        <Header handleHeaderClick={handleHeaderClick} />
+        <Switch>
+          <Route>
+            <ItemsContainer handleChange={handleChange} handleSearchChange={handleSearchChange} selectedCountries={selectedCountries}/>
+          </Route>
+          <Route>
+            <Details/>
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

@@ -1,21 +1,16 @@
 import React from 'react'
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-//import Region from './Region';
 
  const Search = ({ handleChange, handleSearchChange }) => {
-
-    //const regions = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania", "Polar"]
-
     return (
         <div className="top">
             <div className= "search"> 
-                <div className="form-group has-search">
+                <div className="form-group has-search dark">
                     <span className="fa fa-search form-control-feedback"></span>
-                    <input type="text" className="form-control" placeholder="Search" onChange= {handleSearchChange} />
+                    <input type="text" className="form-control" placeholder="Search for a country..." onChange= {handleSearchChange} />
                 </div>
             </div>
             <div className= "filter">
-            <select  className="browser-default custom-select mb-3 mr-5" onChange={handleChange}>
+            <select  className="browser-default custom-select mb-3 mr-5 dark" onChange={handleChange}>
                 <option value="all">All</option>
                 <option value="region/asia">Asia</option>
                 <option value="region/africa">Africa</option>

@@ -1,13 +1,13 @@
 import React from 'react'
 
-const Header = () => {
+const Header = ({handleHeaderClick}) => {
     return (
         <div className="header-container">
             <div className="header">
                 <div className="title">Where in the world?</div>
                 <div className="icon"></div>
             </div>
-            <div><i class="fas fa-moon"></i>Dark Mode</div>
+            <div onClick={handleHeaderClick} className="dark-mode-toggle"><i class="fas fa-moon"></i>Dark Mode</div>
         </div>
     )
 }
