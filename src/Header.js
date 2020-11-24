@@ -7,7 +7,7 @@ const Header = ({handleHeaderClick}) => {
                 <div className="title">Where in the world?</div>
                 <div className="icon"></div>
             </div>
-            <div onClick={handleHeaderClick} className="dark-mode-toggle"><i class="fas fa-moon"></i>Dark Mode</div>
+            <div onClick={handleHeaderClick} className="dark-mode-toggle"><i className="fas fa-moon"></i>Dark Mode</div>
         </div>
     )
 }

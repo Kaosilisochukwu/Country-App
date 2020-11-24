@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Item from './Item';
 import Search from './Search';
-import { Link, Switch } from "react-router-dom";
 
 const ItemsContainer = ({handleChange, handleSearchChange, selectedCountries}) => {
     return(
@@ -9,10 +8,7 @@ const ItemsContainer = ({handleChange, handleSearchChange, selectedCountries}) =
             <Search handleChange={handleChange} handleSearchChange={handleSearchChange}/>
             <div className ="main-item">
                 {selectedCountries.map( country => {
-                    if(country !== null){
-                    return <Item country = {country} key = {country.name}/>
-                    }
-                    return <p>Nocountry</p>
+                    return <Item country = {country} countries={selectedCountries} key = {country.name}/>
                 })}
             </div>
         </div>

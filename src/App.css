@@ -19,7 +19,7 @@ body{
   background-color: var(--dark-mode-background);
   color: var(--dark-mode-text-light-mode-elements);
 }
-.App-dark .item-container, .App-dark input, .App-dark select, .App-dark .header-container{
+.App-dark .item-container, .App-dark input, .App-dark select, .App-dark .header-container, .App-dark .details-btn, .App-dark .countryBtn{
   background-color: var(--dark-mode-elements);
   color: var(--dark-mode-text-light-mode-elements);
 }
@@ -47,12 +47,14 @@ body{
   border: none;
   cursor: pointer;
 }
-.cards :hover {
-  opacity: 0.8;
-}
+
+
 
 .item-details{
   padding: 2px 16px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
 }
 .search, .filter{
   width: 20%;
@@ -70,7 +72,21 @@ body{
 .has-search .form-control {
   padding-left: 2.375rem;
 }
-
+.details-link{
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+.details-btn{
+  padding: .5rem 1rem;
+  color: var(--light-mode-text);
+  border-radius: .5rem;
+  background-color: aqua;
+  
+}
+.details-btn :hover{
+  text-decoration: none;
+}
 .has-search .form-control-feedback {
   position: absolute;
   z-index: 2;
@@ -92,7 +108,6 @@ body{
   margin: 0 auto;
 }
 
-
 .main-item {
   display: flex;
   justify-content: space-around;
@@ -104,4 +119,31 @@ body{
   justify-content: space-between;
   position: sticky;
   top: 0;
+}
+.detailsContainer{
+  display: flex;
+  justify-content: space-between;
+}
+.detailsContainer .details-image, .detailsContainer .details-info {
+  flex: 50%;
+  margin-bottom: 2rem;
+}
+.details{
+  margin: 3rem;
+  height: 100vh;
+}
+.details-main{
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+.details .details-info{
+  padding: 1.5rem;
+}
+.countryBtn{
+  box-shadow: 0 0 8px 0 rgba(0,0,0,0.1);
+  border-radius: .2rem;
+  padding: .2rem 1rem;
+  display: inline-block;
+  margin-top: 1rem;
 }
