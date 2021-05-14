@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Button = ({content}) => {
+const Button = ({content, handleClick}) => {
   return (
-    <div className="countryBtn">
+    <div className="countryBtn" onClick={handleClick}>
       {content}
     </div>
   )
