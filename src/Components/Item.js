@@ -9,13 +9,22 @@ const Item = ({ country }) => {
     <div className="main-item">
       <div className="cards">
         <div className="item-container" onClick={handleClick}>
-          <img src={country.flag} className="img" alt="flag" />
+          <img src={country.flag} className="img" alt="flag" style={{height: "200px"}} />
           <div className="item-details">
             <div>
-              <h6 style={{ margin: "1rem 0" }}>{country.name}</h6>
-              <p>Population: {country.population}</p>
-              <p>Region: {country.region}</p>
-              <p>Capital: {country.capital}</p>
+              <h4 style={{ margin: "1rem 0" }}>{country.name}</h4>
+              <p>
+                <b>Population: </b>
+                {country.population}
+              </p>
+              <p>
+                <b>Region: </b>
+                {country.region}
+              </p>
+              <p>
+                <b>Capital: </b>
+                {country.capital}
+              </p>
             </div>
           </div>
         </div>
