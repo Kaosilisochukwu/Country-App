@@ -12,7 +12,7 @@ function App() {
   const [selectedCountries, setSelectedCountries] = useState([]);
   const [search, setSearch] = useState("");
   const [param, setParam] = useState("all");
-  const url = "https://restcountries.eu/rest/v2/";
+  const url = "https://restcountries.com/v3.1/";
 
   useEffect(() => {
     const fetchCountries = async () => {
