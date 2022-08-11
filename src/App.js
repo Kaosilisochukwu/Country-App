@@ -18,10 +18,11 @@ function App() {
     const fetchCountries = async () => {
       const response = await fetch(`${url}${param}`);
       const data = await response.json();
+      console.log(data);
       setSelectedCountries(
         data.filter(
           (country) =>
-            country.name.toLowerCase().indexOf(search.toLowerCase()) >= 0
+            country.name.common.toLowerCase().indexOf(search.toLowerCase()) >= 0
         )
       );
     };

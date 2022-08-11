@@ -14,28 +14,30 @@ const Details = ({ country, countries }) => {
   useEffect(() => {
     console.log(country);
     setValues(country);
-    setLang(value.languages ? value.languages[0].name : "");
+    console.log("Value is : ::::::", value);
+    setLang(value.languages ? Object.values(value.languages)[0] : "");
     if (country.languages) {
-      setLanguages(country.languages);
+      let languages = Object.values(country.languages);
+      setLanguages(languages);
     }
     if (country.borders) {
       setBorders(country.borders);
-      console.log(borders);
+      console.log("uyiuyiui", borders);
       console.log(countries);
       setBorderCountries(
-        countries.filter((count) => borders.includes(count.alpha3Code))
+        countries.filter((count) => borders.includes(count.fifa))
       );
     }
     if (country.currencies) {
       setCurr(country.currencies);
     }
-  }, [borders, countries, country, value]);
+  }, [country, value, borders, countries]);
   const goBack = () => history.push("/");
 
   console.log(lang);
   const {
     name,
-    flag,
+    flags,
     nativeName,
     population,
     region,
@@ -45,19 +47,20 @@ const Details = ({ country, countries }) => {
   } = value;
   console.log(languages);
   console.log(borderCountries);
+  console.log(flags);
   return (
     <div className="details">
       <Button content="← Back" handleClick={goBack} />
       <div className="details-main">
         <div className="details-image">
           <img
-            src={flag}
+            src={flags && flags.png}
             alt={`${name} flag`}
             style={{ width: "100%", height: "24rem" }}
           />
         </div>
         <div className="details-info">
-          <h1>{name}</h1>
+          <h1>{name && name.common}</h1>
           <div className="detailsContainer">
             <div>
               <p>
@@ -88,12 +91,9 @@ const Details = ({ country, countries }) => {
               </p>
               <p>
                 <b>Currencies: </b>
-                {curr.length > 0 &&
-                  curr.map((x, i) => {
-                    if (i === curr.length - 1) {
-                      return <span>{x.name}</span>;
-                    }
-                    return <span>{x.name}, </span>;
+                {curr &&
+                  Object.values(curr).map((x, i) => {
+                    return <span key={i}>{x.name}</span>;
                   })}
               </p>
               <p>
@@ -101,7 +101,7 @@ const Details = ({ country, countries }) => {
                 {languages.length > 0 &&
                   languages.map((language, i) => {
                     if (i === languages.length - 1) {
-                      return <span>{language.name}</span>;
+                      return <span key={i}>{language.name}</span>;
                     }
                     return <span>{language.name}, </span>;
                   })}
@@ -113,9 +113,13 @@ const Details = ({ country, countries }) => {
               <b>Border Countries: </b>
               {borderCountries &&
                 borderCountries.map((border) => {
+                  console.log("sometihing light", border);
                   return (
-                    <span style={{ marginLeft: "1rem" }}>
-                      <Button content={border.name.split("(")[0]} />
+                    <span
+                      key={border.name.common}
+                      style={{ marginLeft: "1rem" }}
+                    >
+                      <Button content={border.name.common} />
                     </span>
                   );
                 })}
