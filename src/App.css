@@ -10,7 +10,7 @@
 }
 
 body {
-  font-family: var(--font);
+  font-family: "Nunito Sans", sans-serif;
 }
 .App {
   min-height: 100vh;
