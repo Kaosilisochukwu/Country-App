@@ -42,7 +42,7 @@ const Details = ({ country, countries }) => {
     population,
     region,
     subregion,
-    topLevelDomain,
+    tld,
     capital,
   } = value;
   console.log(languages);
@@ -87,7 +87,7 @@ const Details = ({ country, countries }) => {
             <div>
               <p>
                 <b>Top Level Domain: </b>
-                {topLevelDomain}
+                {tld}
               </p>
               <p>
                 <b>Currencies: </b>
@@ -99,11 +99,11 @@ const Details = ({ country, countries }) => {
               <p>
                 <b>Languages: </b>
                 {languages.length > 0 &&
-                  languages.map((language, i) => {
+                  Object.values(languages).map((language, i) => {
                     if (i === languages.length - 1) {
-                      return <span key={i}>{language.name}</span>;
+                      return <span key={i}>{language}</span>;
                     }
-                    return <span>{language.name}, </span>;
+                    return <span key={i}>{language}, </span>;
                   })}
               </p>
             </div>

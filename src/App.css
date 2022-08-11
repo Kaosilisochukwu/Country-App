@@ -131,11 +131,11 @@ body {
 }
 .detailsContainer {
   display: flex;
-  justify-content: space-between;
+  gap: 4rem;
 }
 .details-image,
 .details-info {
-  flex: 50%;
+  width: 45%;
 }
 .details {
   margin: 3rem;
@@ -155,6 +155,7 @@ body {
   padding: 0.2rem 1rem;
   display: inline-block;
   margin-top: 1rem;
+  border: 2px solid rgb(213, 210, 210);
 }
 .countryBtn:hover {
   cursor: pointer;
