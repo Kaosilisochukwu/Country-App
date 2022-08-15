@@ -1,5 +1,5 @@
 :root {
-  --font: "Nunito Sans", sans-serif;
+  --font: Nunito_Regular, sans-serif;
   --font-size: 15px;
   --dark-mode-elements: hsl(209, 23%, 22%);
   --dark-mode-background: hsl(207, 26%, 17%);
@@ -10,7 +10,7 @@
 }
 
 body {
-  font-family: "Nunito Sans", sans-serif;
+  font-family: Nunito_Regular, sans-serif;
 }
 .App {
   min-height: 100vh;

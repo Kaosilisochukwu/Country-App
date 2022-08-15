@@ -23,6 +23,24 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
+@font-face {
+  font-family: "Nunito Black";
+  src: url("./fonts/Nunito-Black.ttf");
+}
+
+@font-face {
+  font-family: "Nunito_Bold";
+  src: url("./fonts/Nunito-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Nunito_Regular";
+  src: url("./fonts/Nunito-Regular.ttf");
+}
+
+
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
